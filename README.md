@@ -96,6 +96,11 @@ All other libraries (`WiFi`, `WebServer`, `DNSServer`, `Preferences`, `SPIFFS`) 
 ## 3D Enclosure
 
 STL files for the glasses-clip enclosure coming soon.
+Arch.stl - Connects both Batter & Esp32 enclosures and slides on left arm of the Meta RayBan 2 glasses.
+Batt_LED_BoxA - Enclosre for battery and LED 
+Batt_LED_BoxB - " lower half
+Ctl_BoxA - Enclosure for Esp32 and buttons/switch
+Ctl_BoxB - " lower half
 
 ## License
 
