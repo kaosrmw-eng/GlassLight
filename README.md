@@ -1,6 +1,6 @@
 # GlassLight
 
-An open-source wearable smart light designed to clip onto glasses frames. Built on the Seeed Studio XIAO ESP32-C6 with a single WS2812B LED.
+An open-source wearable smart light designed to clip onto Meta Rayban 2 glasses. Built on the Seeed Studio XIAO ESP32-C6 with a single WS2812B LED.
 
 ![GlassLight](https://img.shields.io/badge/platform-ESP32--C6-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Version](https://img.shields.io/badge/version-1.6-orange)
 
