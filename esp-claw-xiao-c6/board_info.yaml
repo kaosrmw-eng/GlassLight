@@ -1,0 +1,4 @@
+board: xiao_esp32c6
+chip: esp32c6
+description: "Seeed Studio XIAO ESP32-C6"
+manufacturer: "Seeed Studio"

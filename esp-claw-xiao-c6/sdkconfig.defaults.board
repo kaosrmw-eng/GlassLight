@@ -1,0 +1,58 @@
+# XIAO ESP32-C6 board defaults
+# No PSRAM — all allocations use internal SRAM
+# 4MB flash — single OTA slot + smaller FAT storage
+
+# CPU / Flash
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+
+# Disable PSRAM entirely
+CONFIG_SPIRAM=n
+
+# FreeRTOS — allow external mem tasks is irrelevant without SPIRAM, keep off
+CONFIG_FREERTOS_TASK_CREATE_ALLOW_EXT_MEM=n
+
+# MbedTLS — use internal mem (no SPIRAM)
+CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC=n
+CONFIG_MBEDTLS_HARDWARE_AES=y
+
+# WiFi — reduce buffer footprint for internal SRAM
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=2
+CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM=4
+CONFIG_ESP_WIFI_RX_BA_WIN=2
+
+# LwIP
+CONFIG_LWIP_MAX_SOCKETS=10
+CONFIG_LWIP_TCPIP_RECVMBOX_SIZE=8
+CONFIG_LWIP_TCP_OOSEQ_MAX_PBUFS=2
+CONFIG_LWIP_LOCAL_HOSTNAME="xiao-claw"
+
+# Partition table — custom 4MB layout (see partitions_4MB_c6.csv)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_4MB_c6.csv"
+
+# Reduce idle task stack to save RAM
+CONFIG_FREERTOS_IDLE_TASK_STACKSIZE=1536
+
+# Keep WebSocket support (needed for some IM)
+CONFIG_HTTPD_WS_SUPPORT=y
+
+# FAT long filenames
+CONFIG_FATFS_LFN_HEAP=y
+
+# SNTP
+CONFIG_LWIP_SNTP_MAX_SERVERS=2
+
+# Claw verbosity (set to INFO for production, VERBOSE for debug)
+CONFIG_CLAW_CORE_STAGE_VERBOSITY_INFO=y
+
+# IDF experimental (needed by esp-claw)
+CONFIG_IDF_EXPERIMENTAL_FEATURES=y
+
+# MMAP
+CONFIG_MMAP_FILE_NAME_LENGTH=32
+
+# Display background (no display on C6, but keep default)
+CONFIG_EMOTE_DEF_BG_COLOR=0x171617

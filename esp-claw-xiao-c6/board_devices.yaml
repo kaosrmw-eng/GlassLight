@@ -1,0 +1,17 @@
+version: 1.0.0
+# Devices Configuration — XIAO ESP32-C6
+devices:
+
+  - name: led_strip
+    chip: ws2812
+    type: custom
+    version: default
+    init_skip: true
+    dependencies:
+      espressif/led_strip:
+        version: "^3.0"
+        public: true
+    config:
+      max_leds: 1
+    peripherals:
+      - name: rmt_tx
